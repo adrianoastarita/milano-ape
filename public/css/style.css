@@ -116,6 +116,8 @@ input {
 
 select {
   cursor: pointer;
+  text-align: center;
+  text-align-last: center;
   background: linear-gradient(#2a2a2a, #141414);
   border: 1px solid #e0c29a;
   border-radius: 14px;
@@ -192,9 +194,18 @@ button:hover {
   }
 
   input,
+  select,
+  button,
+  textarea {
+    font-size: 16px;
+  }
+
+  input,
   select {
     border-radius: 10px;
     height: 38px;
     box-shadow: none;
+    text-align: center;
+    text-align-last: center;
   }
 }
