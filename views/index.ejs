@@ -54,9 +54,9 @@
         />
         <div class="field-group">
           <label>ANNO COSTRUZIONE</label>
-          <input type="number" inputmode="numeric" pattern="[0-9]*" id="anno" />
+          <input type="text" inputmode="numeric" pattern="[0-9]*" id="anno" />
           <label class="check">
-            <input type="checkbox" />
+            <input type="checkbox" id="anno_unknown" />
             Non conosco l'anno di costruzione
           </label>
         </div>
@@ -87,10 +87,24 @@
     </footer>
 
     <script>
+      // Data validation numerica
       document.querySelectorAll("#cap, #superficie, #anno").forEach((input) => {
         input.addEventListener("input", () => {
           input.value = input.value.replace(/[^0-9]/g, "");
         });
+      });
+
+      // Logica checkbox anno di costruzione
+      const annoInput = document.getElementById("anno");
+      const checkbox = document.getElementById("anno_unknown");
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          annoInput.value = "?";
+          annoInput.disabled = true;
+        } else {
+          annoInput.value = "";
+          annoInput.disabled = false;
+        }
       });
     </script>
   </body>

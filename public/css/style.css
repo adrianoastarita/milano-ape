@@ -137,6 +137,12 @@ input[type="checkbox"] {
   accent-color: var(--orange);
 }
 
+input:disabled {
+  background: #1a1a1a;
+  color: #777;
+  border-color: #333;
+}
+
 select {
   cursor: pointer;
   text-align: center;
