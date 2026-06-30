@@ -29,25 +29,12 @@
         <input type="text" id="comune" />
         <label>INDIRIZZO</label>
         <input type="text" id="indirizzo" />
-        <div class="row">
-          <div>
-            <label>CAP</label>
-            <input
-              type="number"
-              inputmode="numeric"
-              pattern="[0-9]*"
-              id="cap"
-            />
-          </div>
-          <div>
-            <label>SCALA</label>
-            <input type="text" id="scala" />
-          </div>
-          <div>
-            <label>INTERNO</label>
-            <input type="text" id="interno" />
-          </div>
-        </div>
+        <label>CAP</label>
+        <input type="number" inputmode="numeric" pattern="[0-9]*" id="cap" />
+        <label>SCALA</label>
+        <input type="text" id="scala" />
+        <label>INTERNO</label>
+        <input type="text" id="interno" />
       </section>
 
       <section class="card">
@@ -65,21 +52,25 @@
           pattern="[0-9]*"
           id="superficie"
         />
-        <label>ANNO COSTRUZIONE</label>
-        <input type="number" inputmode="numeric" pattern="[0-9]*" id="anno" />
-        <label class="check">
-          <input type="checkbox" />
-          Non sono a conoscenza dell'anno di costruzione
-        </label>
+        <div class="field-group">
+          <label>ANNO COSTRUZIONE</label>
+          <input type="number" inputmode="numeric" pattern="[0-9]*" id="anno" />
+          <label class="check">
+            <input type="checkbox" />
+            Non conosco l'anno di costruzione
+          </label>
+        </div>
         <label>RISCALDAMENTO</label>
         <select>
           <option>CENTRALIZZATO</option>
           <option>AUTONOMO</option>
         </select>
-        <label class="check">
-          <input type="checkbox" />
-          CAPPOTTO TERMICO
-        </label>
+        <label>CAPPOTTO TERMICO</label>
+        <select>
+          <option>NO</option>
+          <option>SÌ</option>
+          <option>NON SO</option>
+        </select>
       </section>
 
       <section class="card">
