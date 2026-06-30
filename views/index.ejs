@@ -16,8 +16,9 @@
         <img src="/images/logo.png" alt="APE Milano" />
       </div>
       <div class="title">
-        <span class="strong">ATTESTATO PRESTAZIONE ENERGETICA</span>
-        <span class="light"> - MILANO E HINTERLAND</span>
+        <span class="strong"> ATTESTATO PRESTAZIONE ENERGETICA </span>
+        <span class="dash"> - </span>
+        <span class="light"> MILANO E HINTERLAND </span>
       </div>
     </header>
     <div class="separator"></div>
@@ -25,21 +26,26 @@
       <section class="card">
         <h2>COMUNE IMMOBILE</h2>
         <label>COMUNE</label>
-        <input type="text" />
+        <input type="text" id="comune" />
         <label>INDIRIZZO</label>
-        <input type="text" />
+        <input type="text" id="indirizzo" />
         <div class="row">
           <div>
             <label>CAP</label>
-            <input type="text" />
+            <input
+              type="number"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              id="cap"
+            />
           </div>
           <div>
             <label>SCALA</label>
-            <input type="text" />
+            <input type="text" id="scala" />
           </div>
           <div>
             <label>INTERNO</label>
-            <input type="text" />
+            <input type="text" id="interno" />
           </div>
         </div>
       </section>
@@ -53,9 +59,14 @@
           <option>UFFICIO</option>
         </select>
         <label>SUPERFICIE (mq)</label>
-        <input type="number" />
+        <input
+          type="number"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          id="superficie"
+        />
         <label>ANNO COSTRUZIONE</label>
-        <input type="number" />
+        <input type="number" inputmode="numeric" pattern="[0-9]*" id="anno" />
         <label class="check">
           <input type="checkbox" />
           Non sono a conoscenza dell'anno di costruzione
@@ -74,14 +85,22 @@
       <section class="card">
         <h2>SOPRALLUOGO</h2>
         <label>DATA</label>
-        <input type="date" />
+        <input type="date" id="data" />
         <label>ORARIO</label>
-        <input type="time" />
+        <input type="time" id="orario" />
       </section>
     </main>
 
     <footer>
       <button>CALCOLA PREVENTIVO</button>
     </footer>
+
+    <script>
+      document.querySelectorAll("#cap, #superficie, #anno").forEach((input) => {
+        input.addEventListener("input", () => {
+          input.value = input.value.replace(/[^0-9]/g, "");
+        });
+      });
+    </script>
   </body>
 </html>
