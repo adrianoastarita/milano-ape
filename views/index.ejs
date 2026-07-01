@@ -44,6 +44,7 @@
           <option>APPARTAMENTO</option>
           <option>VILLA</option>
           <option>UFFICIO</option>
+          <option>ALTRO</option>
         </select>
         <label>SUPERFICIE (mq)</label>
         <input
@@ -76,9 +77,22 @@
       <section class="card">
         <h2>SOPRALLUOGO</h2>
         <label>DATA</label>
-        <input type="date" id="data" />
+        <select id="data" required>
+          <option value="" selected disabled hidden>
+            Seleziona una data
+          </option>
+        </select>
         <label>ORARIO</label>
-        <input type="time" id="orario" />
+        <select id="orario" required>
+          <option value="" selected disabled hidden>
+            Seleziona un orario
+          </option>
+          <option>18:00</option>
+          <option>18:30</option>
+          <option>19:00</option>
+          <option>19:30</option>
+          <option>20:00</option>
+        </select>
         <p class="note">
           Il sopralluogo in loco è obbligatorio ai sensi del D.M. 26 giugno
           2015. La sua assenza comporta la non validità dell’APE e sanzioni
@@ -93,6 +107,7 @@
     </footer>
 
     <script>
+
       // Data validation numerica
       document.querySelectorAll("#cap, #superficie, #anno").forEach((input) => {
         input.addEventListener("input", () => {
@@ -112,6 +127,75 @@
           annoInput.disabled = false;
         }
       });
+
+      // Logica blocco orario prima di selezione data
+      const dataSelect = document.getElementById("data");
+      const orarioSelect = document.getElementById("orario");
+      orarioSelect.disabled = true;
+      dataSelect.addEventListener("change", () => {
+        if (!dataSelect.value) {
+          orarioSelect.disabled = true;
+        } else {
+          orarioSelect.disabled = false;
+        }
+      });
+
+      // Logica generazione dinamica fasce orarie
+      function generaOrari(isSabato) {
+        const orari = [];
+        if (isSabato) {
+          for (let h = 9; h <= 12; h++) {
+            orari.push(`${String(h).padStart(2, "0")}:00`);
+            if (h !== 12) orari.push(`${String(h).padStart(2, "0")}:30`);
+          }
+          for (let h = 15; h <= 18; h++) {
+            orari.push(`${String(h).padStart(2, "0")}:00`);
+            if (h !== 18) orari.push(`${String(h).padStart(2, "0")}:30`);
+          }
+        } else {
+          for (let h = 18; h <= 20; h++) {
+            orari.push(`${String(h).padStart(2, "0")}:00`);
+            if (h !== 20) orari.push(`${String(h).padStart(2, "0")}:30`);
+          }
+        }
+        return orari;
+      }
+      dataSelect.addEventListener("change", () => {
+        const d = new Date(dataSelect.value);
+        const isSabato = d.getDay() === 6;
+        const orari = generaOrari(isSabato);
+        orarioSelect.innerHTML = `
+          <option value="" selected disabled hidden>
+            Seleziona un orario
+          </option>
+        `;
+        orari.forEach((o) => {
+          const opt = document.createElement("option");
+          opt.value = o;
+          opt.textContent = o;
+          orarioSelect.appendChild(opt);
+        });
+        orarioSelect.disabled = false;
+      });
+
+      // Logica selezione date
+      for (let i = 1; i <= 14; i++) {
+        const d = new Date();
+        d.setDate(d.getDate() + i);
+        // salta la domenica
+        if (d.getDay() === 0) continue;
+        const value = d.toISOString().slice(0, 10);
+        const option = document.createElement("option");
+        option.value = value;
+        const testo = d.toLocaleDateString("it-IT", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+        });
+        option.textContent = testo.charAt(0).toUpperCase() + testo.slice(1);
+        dataSelect.appendChild(option);
+      }
+
     </script>
   </body>
 </html>
