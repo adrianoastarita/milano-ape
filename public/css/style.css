@@ -67,6 +67,64 @@ header {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.8), 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
+.top-banner {
+  max-width: 1180px;
+  margin: 24px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.banner-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: linear-gradient(#171717, #101010);
+  border: 1px solid rgba(217, 120, 22, 0.75);
+  border-radius: 18px;
+
+  padding: 16px 18px;
+
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  transition: 0.2s;
+}
+
+.banner-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--orange);
+}
+
+.banner-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.banner-subtitle {
+  margin-top: 4px;
+  color: #a5a5a5;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
 main {
   max-width: 1180px;
   margin: 28px auto;
@@ -247,6 +305,30 @@ button:hover {
 
   body {
     padding-top: var(--header-height);
+  }
+
+  .top-banner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 20px 20px;
+    padding: 0;
+  }
+
+  .banner-item {
+    padding: 14px 16px;
+  }
+
+  .banner-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .banner-title {
+    font-size: 14px;
+  }
+
+  .banner-subtitle {
+    font-size: 12px;
   }
 
   .separator {

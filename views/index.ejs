@@ -20,8 +20,47 @@
         <span class="dash"> - </span>
         <span class="light"> MILANO E HINTERLAND </span>
       </div>
-      <div class="separator"></div>
     </header>
+
+    <div class="separator"></div>
+
+    <div class="top-banner">
+      <div class="banner-item">
+        <img src="/images/icon-price.png" alt="" class="banner-icon" />
+        <div class="banner-text">
+          <span class="banner-title">APE a partire da 119€</span>
+          <span class="banner-subtitle">IVA inclusa</span>
+        </div>
+      </div>
+      <div class="banner-item">
+        <img src="/images/icon-calendar.png" alt="" class="banner-icon" />
+        <div class="banner-text">
+          <span class="banner-title">Sopralluoghi flessibili</span>
+          <span class="banner-subtitle"
+            >Lun-Ven 18:00–20:00 • Sabato tutto il giorno</span
+          >
+        </div>
+      </div>
+      <div class="banner-item">
+        <img src="/images/icon-speed.png" alt="" class="banner-icon" />
+        <div class="banner-text">
+          <span class="banner-title">Certificato in 48h</span>
+          <span class="banner-subtitle">Dal momento del sopralluogo</span>
+        </div>
+      </div>
+      <div class="banner-item">
+        <img src="/images/icon-snail.png" alt="" class="banner-icon" />
+        <div class="banner-text">
+          <span class="banner-title">Nessuna registrazione</span>
+          <span class="banner-subtitle"
+            >Compila il form e richiedi il preventivo</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
     <main>
       <section class="card">
         <h2>COMUNE IMMOBILE</h2>
@@ -78,15 +117,11 @@
         <h2>SOPRALLUOGO</h2>
         <label>DATA</label>
         <select id="data" required>
-          <option value="" selected disabled hidden>
-            Seleziona una data
-          </option>
+          <option value="" selected disabled hidden>Seleziona una data</option>
         </select>
         <label>ORARIO</label>
         <select id="orario" required>
-          <option value="" selected disabled hidden>
-            Seleziona un orario
-          </option>
+          <option value="" selected disabled hidden>Seleziona un orario</option>
           <option>18:00</option>
           <option>18:30</option>
           <option>19:00</option>
@@ -107,7 +142,6 @@
     </footer>
 
     <script>
-
       // Data validation numerica
       document.querySelectorAll("#cap, #superficie, #anno").forEach((input) => {
         input.addEventListener("input", () => {
@@ -195,7 +229,6 @@
         option.textContent = testo.charAt(0).toUpperCase() + testo.slice(1);
         dataSelect.appendChild(option);
       }
-
     </script>
   </body>
 </html>
