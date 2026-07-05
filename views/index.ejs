@@ -28,7 +28,7 @@
       <div class="banner-item">
         <img src="/images/icon-price.png" alt="" class="banner-icon" />
         <div class="banner-text">
-          <span class="banner-title">APE a partire da 119€</span>
+          <span class="banner-title">APE a partire da 149€</span>
           <span class="banner-subtitle">IVA inclusa</span>
         </div>
       </div>
@@ -61,94 +61,93 @@
 
     <div class="separator"></div>
 
-    <main>
-      <section class="card">
-        <h2>COMUNE IMMOBILE</h2>
-        <label>COMUNE</label>
-        <input type="text" id="comune" />
-        <label>INDIRIZZO</label>
-        <input type="text" id="indirizzo" />
-        <label>CAP</label>
-        <input type="number" inputmode="numeric" pattern="[0-9]*" id="cap" />
-        <label>SCALA</label>
-        <input type="text" id="scala" />
-        <label>INTERNO</label>
-        <input type="text" id="interno" />
-      </section>
+    <form id="form">
 
-      <section class="card">
-        <h2>DATI IMMOBILE</h2>
-        <label>TIPOLOGIA</label>
-        <select required>
-          <option value="" selected disabled hidden>
-            Seleziona un'opzione
-          </option>
-          <option>APPARTAMENTO</option>
-          <option>VILLA</option>
-          <option>UFFICIO</option>
-          <option>ALTRO</option>
-        </select>
-        <label>SUPERFICIE (mq)</label>
-        <input
-          type="number"
-          inputmode="numeric"
-          pattern="[0-9]*"
-          id="superficie"
-        />
-        <div class="field-group">
-          <label>ANNO COSTRUZIONE</label>
-          <input type="text" inputmode="numeric" pattern="[0-9]*" id="anno" />
-          <label class="check">
-            <input type="checkbox" id="anno_unknown" />
-            Non conosco l'anno di costruzione
-          </label>
-        </div>
-        <label>RISCALDAMENTO</label>
-        <select required>
-          <option value="" selected disabled hidden>
-            Seleziona un'opzione
-          </option>
-          <option>CENTRALIZZATO</option>
-          <option>AUTONOMO</option>
-        </select>
-        <label>CAPPOTTO TERMICO</label>
-        <select required>
-          <option value="" selected disabled hidden>
-            Seleziona un'opzione
-          </option>
-          <option>NO</option>
-          <option>SÌ</option>
-          <option>NON SO</option>
-        </select>
-      </section>
+      <main>
+        <section class="card">
+          <h2>COMUNE IMMOBILE</h2>
+          <label class="required" >COMUNE</label>
+          <input type="text" id="comune" required />
+          <label class="required" >INDIRIZZO</label>
+          <input type="text" id="indirizzo" required />
+          <label class="required" >CAP</label>
+          <input type="number" inputmode="numeric" pattern="[0-9]*" id="cap" required />
+          <label class="optional" >SCALA</label>
+          <input type="text" id="scala" />
+          <label class="optional" >INTERNO</label>
+          <input type="text" id="interno" />
+        </section>
 
-      <section class="card">
-        <h2>SOPRALLUOGO</h2>
-        <label>DATA</label>
-        <select id="data" required>
-          <option value="" selected disabled hidden>Seleziona una data</option>
-        </select>
-        <label>ORARIO</label>
-        <select id="orario" required>
-          <option value="" selected disabled hidden>Seleziona un orario</option>
-          <option>18:00</option>
-          <option>18:30</option>
-          <option>19:00</option>
-          <option>19:30</option>
-          <option>20:00</option>
-        </select>
-        <p class="note">
-          Il sopralluogo in loco è obbligatorio ai sensi del D.M. 26 giugno
-          2015. La sua assenza comporta la non validità dell’APE e sanzioni
-          amministrative per il propeitario dell'immobile. Diffida dagli enti
-          che rilasciano l’attestato senza sopralluogo.
-        </p>
-      </section>
-    </main>
+        <section class="card">
+          <h2>DATI IMMOBILE</h2>
+          <label class="required" >TIPOLOGIA</label>
+          <select required>
+            <option value="" selected disabled hidden>
+              Seleziona un'opzione
+            </option>
+            <option>APPARTAMENTO</option>
+            <option>VILLA</option>
+            <option>UFFICIO</option>
+            <option>ALTRO</option>
+          </select>
+          <label class="required" >SUPERFICIE (mq)</label>
+          <input type="number" inputmode="numeric" pattern="[0-9]*" id="superficie" required />
+          <div class="field-group">
+            <label class="required" >ANNO COSTRUZIONE</label>
+            <input type="text" inputmode="numeric" pattern="[0-9]*" id="anno" required />
+            <label class="check">
+              <input type="checkbox" id="anno_unknown" />
+              Non conosco l'anno di costruzione
+            </label>
+          </div>
+          <label class="required" >RISCALDAMENTO</label>
+          <select id="riscaldamento" required>
+            <option value="" selected disabled hidden>
+              Seleziona un'opzione
+            </option>
+            <option>CENTRALIZZATO</option>
+            <option>AUTONOMO</option>
+          </select>
+          <label class="required" >CAPPOTTO TERMICO</label>
+          <select id="cappotto" required>
+            <option value="" selected disabled hidden>
+              Seleziona un'opzione
+            </option>
+            <option>NO</option>
+            <option>SÌ</option>
+            <option>NON SO</option>
+          </select>
+        </section>
 
-    <footer>
-      <button>CALCOLA PREVENTIVO</button>
-    </footer>
+        <section class="card">
+          <h2>SOPRALLUOGO</h2>
+          <label class="required" >DATA</label>
+          <select id="data" required >
+            <option value="" selected disabled hidden>Seleziona una data</option>
+          </select>
+          <label class="required" >ORARIO</label>
+          <select id="orario" required >
+            <option value="" selected disabled hidden>Seleziona un orario</option>
+            <option>18:00</option>
+            <option>18:30</option>
+            <option>19:00</option>
+            <option>19:30</option>
+            <option>20:00</option>
+          </select>
+          <p class="note">
+            Il sopralluogo in loco è obbligatorio ai sensi del D.M. 26 giugno
+            2015. La sua assenza comporta la non validità dell’APE e sanzioni
+            amministrative per il propeitario dell'immobile. Diffida dagli enti
+            che rilasciano l’attestato senza sopralluogo.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <button>CALCOLA PREVENTIVO</button>
+      </footer>
+
+    </form>
 
     <script>
       // Data validation numerica
@@ -165,9 +164,11 @@
         if (checkbox.checked) {
           annoInput.value = "?";
           annoInput.disabled = true;
+          annoInput.required = false;
         } else {
           annoInput.value = "";
           annoInput.disabled = false;
+          annoInput.required = true;
         }
       });
 
@@ -238,6 +239,18 @@
         option.textContent = testo.charAt(0).toUpperCase() + testo.slice(1);
         dataSelect.appendChild(option);
       }
+
+      // Logica popup check input
+      const data = document.getElementById("form");
+      data.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!data.checkValidity()) {
+          data.reportValidity();
+          return;
+        }
+        alert("Tutti i dati sono stati inseriti correttamente.\n\nNella prossima schermata verrà calcolato il preventivo.");
+      });
+
     </script>
   </body>
 </html>
