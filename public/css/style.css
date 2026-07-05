@@ -314,6 +314,93 @@ label.required::after {
   color: #d63b3b;
 }
 
+.summary {
+  max-width: 1180px;
+  margin: 28px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 0 20px;
+}
+
+.card.small {
+  min-height: 260px;
+}
+
+.card.highlight {
+  border: 2px solid var(--orange);
+  box-shadow: 0 0 18px rgba(217,120,22,0.15);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.row img {
+  width: 28px;
+  height: 28px;
+}
+
+.muted {
+  color: #9d9d9d;
+  font-size: 13px;
+}
+
+.price {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.price .big {
+  font-size: 42px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.price .small-text {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.breakdown {
+  margin-top: 10px;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #ddd;
+  border-top: 1px solid #222;
+  padding-top: 10px;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.badges span {
+  font-size: 11px;
+  padding: 4px 10px;
+  border: 1px solid var(--orange);
+  border-radius: 999px;
+  color: #ddd;
+}
+
+.note {
+  font-size: 12px;
+  color: #888;
+  margin-top: 20px;
+  text-align: center;
+}
+
 @media (max-width: 1000px) {
   :root {
     --header-height: 140px;
@@ -412,4 +499,9 @@ label.required::after {
     width: 80%;
     height: 46px;
   }
+
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
 }
